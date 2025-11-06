@@ -100,6 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             justify-content: center;
             position: relative;
             overflow: hidden;
+            padding: 1rem;
         }
         
         /* Animated background elements */
@@ -263,24 +264,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
-    <div class="w-full max-w-lg px-6 py-8 sm:px-10 sm:py-12">
-        <div class="login-container p-10 sm:p-12">
+    <div class="w-full max-w-2xl px-6 py-6 sm:px-8 sm:py-8">
+        <div class="login-container p-8 sm:p-10">
             <!-- Logo and Header -->
-            <div class="text-center mb-10">
-                <div class="logo-container inline-block mb-5">
+            <div class="text-center mb-6">
+                <div class="logo-container inline-block mb-3">
                     <img src="<?php echo LOGO_URL; ?>webspaceng-logo-renewed.png" 
                          alt="<?php echo SITE_NAME; ?>" 
-                         class="h-20 mx-auto object-contain">
+                         class="h-16 mx-auto object-contain">
                 </div>
-                <h1 class="text-4xl font-bold text-gray-900 mb-3">Welcome Back</h1>
-                <p class="text-gray-600 text-base">Sign in to access your admin dashboard</p>
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">Welcome Back</h1>
+                <p class="text-gray-600 text-sm">Sign in to access your admin dashboard</p>
             </div>
             
             <!-- Error Message -->
             <?php if ($error): ?>
-                <div class="error-message mb-6 p-4 bg-red-50 border-l-4 border-red-500 rounded-lg">
+                <div class="error-message mb-4 p-3 bg-red-50 border-l-4 border-red-500 rounded-lg">
                     <div class="flex items-center">
-                        <svg class="w-5 h-5 text-red-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 text-red-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
                         </svg>
                         <p class="text-red-700 text-sm font-medium"><?php echo htmlspecialchars($error); ?></p>
@@ -289,15 +290,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endif; ?>
             
             <!-- Login Form -->
-            <form id="loginForm" class="space-y-7" method="POST" action="" novalidate>
+            <form id="loginForm" class="space-y-5" method="POST" action="" novalidate>
                 <!-- Username/Email Field -->
                 <div class="input-group">
-                    <label for="username" class="block text-base font-semibold text-gray-700 mb-3">
+                    <label for="username" class="block text-sm font-semibold text-gray-700 mb-2">
                         Username or Email
                     </label>
                     <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-                            <svg class="input-icon h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <svg class="input-icon h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                             </svg>
                         </div>
@@ -308,7 +309,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             required 
                             autocomplete="username"
                             autofocus
-                            class="block w-full pl-14 pr-5 py-4 text-base border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 outline-none text-gray-900 placeholder-gray-400"
+                            class="block w-full pl-12 pr-4 py-3 text-base border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 outline-none text-gray-900 placeholder-gray-400"
                             placeholder="Enter your username or email"
                             aria-label="Username or Email"
                             aria-required="true">
@@ -317,12 +318,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 
                 <!-- Password Field -->
                 <div class="input-group">
-                    <label for="password" class="block text-base font-semibold text-gray-700 mb-3">
+                    <label for="password" class="block text-sm font-semibold text-gray-700 mb-2">
                         Password
                     </label>
                     <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
-                            <svg class="input-icon h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <svg class="input-icon h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                             </svg>
                         </div>
@@ -332,20 +333,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             type="password" 
                             required 
                             autocomplete="current-password"
-                            class="block w-full pl-14 pr-14 py-4 text-base border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 outline-none text-gray-900 placeholder-gray-400"
+                            class="block w-full pl-12 pr-12 py-3 text-base border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 outline-none text-gray-900 placeholder-gray-400"
                             placeholder="Enter your password"
                             aria-label="Password"
                             aria-required="true">
                         <button 
                             type="button" 
                             id="togglePassword"
-                            class="password-toggle absolute inset-y-0 right-0 pr-5 flex items-center text-gray-400 hover:text-gray-600"
+                            class="password-toggle absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-gray-600"
                             aria-label="Toggle password visibility">
-                            <svg id="eyeIcon" class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg id="eyeIcon" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
                             </svg>
-                            <svg id="eyeOffIcon" class="h-6 w-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg id="eyeOffIcon" class="h-5 w-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
                             </svg>
                         </button>
@@ -358,11 +359,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input 
                             type="checkbox" 
                             name="remember" 
-                            class="w-5 h-5 text-primary border-gray-300 rounded focus:ring-primary focus:ring-2 cursor-pointer"
+                            class="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary focus:ring-2 cursor-pointer"
                             aria-label="Remember me">
-                        <span class="ml-3 text-base text-gray-600 group-hover:text-gray-900 transition-colors">Remember me</span>
+                        <span class="ml-2 text-sm text-gray-600 group-hover:text-gray-900 transition-colors">Remember me</span>
                     </label>
-                    <a href="#" class="text-base font-medium text-primary hover:text-blue-700 transition-colors">
+                    <a href="#" class="text-sm font-medium text-primary hover:text-blue-700 transition-colors">
                         Forgot password?
                     </a>
                 </div>
@@ -371,7 +372,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <button 
                     type="submit" 
                     id="submitBtn"
-                    class="btn-login w-full flex items-center justify-center px-6 py-4 text-lg bg-gradient-to-r from-primary to-blue-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary focus:ring-opacity-50">
+                    class="btn-login w-full flex items-center justify-center px-6 py-3 text-base bg-gradient-to-r from-primary to-blue-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary focus:ring-opacity-50">
                     <span class="btn-text">Sign In</span>
                     <svg class="spinner h-5 w-5 animate-spin ml-2" fill="none" viewBox="0 0 24 24">
                         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -381,12 +382,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
             
             <!-- Footer -->
-            <div class="mt-8 pt-6 border-t border-gray-200">
+            <div class="mt-6 pt-4 border-t border-gray-200">
                 <p class="text-center text-xs text-gray-500">
                     © <?php echo date('Y'); ?> <?php echo SITE_NAME; ?>. All rights reserved.
-                </p>
-                <p class="text-center text-xs text-gray-400 mt-2">
-                    Secure login with encryption
                 </p>
             </div>
         </div>
