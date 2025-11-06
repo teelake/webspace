@@ -23,6 +23,7 @@ define('ROOT_PATH', dirname(__DIR__));
 define('UPLOAD_PATH', ROOT_PATH . '/uploads/');
 define('UPLOAD_URL', SITE_URL . '/uploads/');
 define('ASSETS_URL', SITE_URL . '/assets/');
+define('LOGO_URL', SITE_URL . '/assets/img/logo/');
 
 // Admin Configuration
 define('ADMIN_EMAIL', 'admin@webspace.ng');

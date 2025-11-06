@@ -140,3 +140,57 @@ function setSetting($key, $value) {
     return $stmt->execute([$key, $value, $value]);
 }
 
+/**
+ * Check for spam/bot submission (honeypot + rate limiting)
+ */
+function isSpamSubmission($honeypot = '', $ip = '') {
+    // Honeypot check - if filled, it's a bot
+    if (!empty($honeypot)) {
+        return true;
+    }
+    
+    // Rate limiting - check if same email submitted multiple times in last hour
+    $email = $_POST['email'] ?? '';
+    if (empty($email)) {
+        return false;
+    }
+    
+    global $conn;
+    if (!isset($conn)) {
+        $db = new Database();
+        $conn = $db->getConnection();
+    }
+    
+    // Check submissions in last hour from same email
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM contact_messages WHERE created_at > DATE_SUB(NOW(), INTERVAL 1 HOUR) AND email = ?");
+    $stmt->execute([$email]);
+    $count = $stmt->fetchColumn();
+    
+    // Allow max 3 submissions per hour per email
+    if ($count >= 3) {
+        return true;
+    }
+    
+    return false;
+}
+
+/**
+ * Verify form submission timing (human check)
+ */
+function isValidFormTiming($minSeconds = 3) {
+    if (!isset($_SESSION['form_start_time'])) {
+        $_SESSION['form_start_time'] = time();
+        return false;
+    }
+    
+    $elapsed = time() - $_SESSION['form_start_time'];
+    
+    // Forms filled too quickly are likely bots
+    if ($elapsed < $minSeconds) {
+        return false;
+    }
+    
+    unset($_SESSION['form_start_time']);
+    return true;
+}
+

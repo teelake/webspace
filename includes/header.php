@@ -25,17 +25,17 @@ $meta_keywords = isset($meta_keywords) ? $meta_keywords : 'web design, digital m
     <meta property="og:description" content="<?php echo htmlspecialchars($meta_description); ?>">
     <meta property="og:type" content="website">
     <meta property="og:url" content="<?php echo SITE_URL . $_SERVER['REQUEST_URI']; ?>">
-    <meta property="og:image" content="<?php echo SITE_URL; ?>/assets/webspace-logo-renewed-blue.jpg">
+    <meta property="og:image" content="<?php echo LOGO_URL; ?>webspace-logo-renewed-blue.jpg">
     <meta property="og:site_name" content="<?php echo SITE_NAME; ?>">
     
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?php echo htmlspecialchars($page_title); ?>">
     <meta name="twitter:description" content="<?php echo htmlspecialchars($meta_description); ?>">
-    <meta name="twitter:image" content="<?php echo SITE_URL; ?>/assets/webspace-logo-renewed-blue.jpg">
+    <meta name="twitter:image" content="<?php echo LOGO_URL; ?>webspace-logo-renewed-blue.jpg">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="<?php echo ASSETS_URL; ?>webspace-favicon.png">
+    <link rel="icon" type="image/png" href="<?php echo LOGO_URL; ?>webspace-favicon.png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,7 +70,19 @@ $meta_keywords = isset($meta_keywords) ? $meta_keywords : 'web design, digital m
         body {
             font-family: 'Inter', sans-serif;
         }
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
+    
+    <!-- Analytics Placeholder -->
+    <?php
+    // Analytics file will be included here
+    $analytics_file = ROOT_PATH . '/analytics.php';
+    if (file_exists($analytics_file)) {
+        include $analytics_file;
+    }
+    ?>
 </head>
 <body class="bg-white text-gray-900 antialiased">
     <!-- Navigation -->
@@ -79,7 +91,7 @@ $meta_keywords = isset($meta_keywords) ? $meta_keywords : 'web design, digital m
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
                 <a href="/" class="flex items-center space-x-2">
-                    <img src="<?php echo ASSETS_URL; ?>webspace-logo.png" alt="<?php echo SITE_NAME; ?>" class="h-12 w-auto">
+                    <img src="<?php echo LOGO_URL; ?>webspace-logo.png" alt="<?php echo SITE_NAME; ?>" class="h-12 w-auto">
                 </a>
                 
                 <!-- Desktop Menu -->

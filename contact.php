@@ -7,18 +7,30 @@ $meta_description = 'Get in touch with Webspace Innovation Hub Limited. Contact 
 $success = false;
 $error = '';
 
+// Initialize form start time for timing check
+if (!isset($_SESSION['form_start_time'])) {
+    $_SESSION['form_start_time'] = time();
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = sanitize($_POST['name'] ?? '');
     $email = sanitize($_POST['email'] ?? '');
     $phone = sanitize($_POST['phone'] ?? '');
     $subject = sanitize($_POST['subject'] ?? '');
     $message = sanitize($_POST['message'] ?? '');
+    $honeypot = $_POST['website'] ?? ''; // Honeypot field (hidden from users)
     
-    // Validation
-    if (empty($name) || empty($email) || empty($message)) {
+    // Spam protection checks
+    if (isSpamSubmission($honeypot)) {
+        $error = 'Spam detected. Please try again later.';
+    } elseif (!isValidFormTiming(3)) {
+        $error = 'Form submitted too quickly. Please take your time filling out the form.';
+    } elseif (empty($name) || empty($email) || empty($message)) {
         $error = 'Please fill in all required fields.';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = 'Please enter a valid email address.';
+    } elseif (strlen($message) < 10) {
+        $error = 'Message is too short. Please provide more details.';
     } else {
         // Save to database
         $db = new Database();
@@ -86,7 +98,13 @@ include 'includes/header.php';
                     </div>
                 <?php endif; ?>
                 
-                <form method="POST" action="/contact" class="space-y-6">
+                <form method="POST" action="/contact" class="space-y-6" id="contactForm">
+                    <!-- Honeypot field (hidden from users, bots will fill it) -->
+                    <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
+                        <label for="website">Website (leave blank)</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                    </div>
+                    
                     <div>
                         <label for="name" class="block text-gray-700 font-semibold mb-2">Name <span class="text-red-500">*</span></label>
                         <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>">
@@ -173,6 +191,55 @@ include 'includes/header.php';
         </div>
     </div>
 </section>
+
+<!-- Google Maps Section -->
+<section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Find Us</h2>
+            <p class="text-gray-600">Visit us at our location</p>
+        </div>
+        <div class="max-w-6xl mx-auto" data-aos="fade-up">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d105681.43880896235!2d3.746626563213522!3d7.368301663522166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x10398db8b38547bb%3A0x15577ea8f163c31c!2sOlapade%20Agoro%20Leaders%20High%20School%2C%20Adedeji%20Bero%20St%2C%20Oluyole%2C%20Ibadan%20200261%2C%20Oyo!3m2!1d7.3683092!2d3.8290284999999997!5e1!3m2!1sen!2sng!4v1762417305785!5m2!1sen!2sng" 
+                    width="100%" 
+                    height="500" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    class="w-full">
+                </iframe>
+            </div>
+            <div class="mt-6 text-center">
+                <p class="text-gray-600">
+                    <strong>Address:</strong> Olapade Agoro Leaders High School, Adedeji Bero St, Oluyole, Ibadan 200261, Oyo
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Form timing validation
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    if (form) {
+        const formStartTime = <?php echo isset($_SESSION['form_start_time']) ? $_SESSION['form_start_time'] : time(); ?>;
+        
+        form.addEventListener('submit', function(e) {
+            const elapsed = Math.floor((Date.now() / 1000) - formStartTime);
+            
+            if (elapsed < 3) {
+                e.preventDefault();
+                alert('Please take your time filling out the form. Forms filled too quickly are rejected.');
+                return false;
+            }
+        });
+    }
+});
+</script>
 
 <?php include 'includes/footer.php'; ?>
 

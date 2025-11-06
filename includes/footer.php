@@ -6,7 +6,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <!-- Company Info -->
                 <div data-aos="fade-up">
-                    <img src="<?php echo ASSETS_URL; ?>webspace-logo.png" alt="<?php echo SITE_NAME; ?>" class="h-12 w-auto mb-4">
+                    <img src="<?php echo LOGO_URL; ?>webspace-logo.png" alt="<?php echo SITE_NAME; ?>" class="h-12 w-auto mb-4">
                     <p class="text-gray-400 mb-4"><?php echo SITE_TAGLINE; ?></p>
                     <p class="text-sm text-gray-500">Registration No: <?php echo REGISTRATION_NO; ?></p>
                 </div>
@@ -73,7 +73,8 @@
         AOS.init({
             duration: 800,
             easing: 'ease-in-out',
-            once: true
+            once: true,
+            offset: 100
         });
         
         // Mobile Menu Toggle
@@ -81,6 +82,56 @@
             const menu = document.getElementById('mobileMenu');
             menu.classList.toggle('hidden');
         });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.length > 1) {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Add scroll effect to navbar
+        let lastScroll = 0;
+        const navbar = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+            lastScroll = currentScroll;
+        });
+        
+        // Lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                            observer.unobserve(img);
+                        }
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
     </script>
 </body>
 </html>

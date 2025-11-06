@@ -26,24 +26,193 @@ $blog_posts = $stmt->fetchAll();
 include 'includes/header.php';
 ?>
 
-<!-- Hero Section -->
-<section class="relative bg-gradient-to-br from-primary via-blue-600 to-blue-800 text-white py-20 md:py-32">
-    <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6"><?php echo SITE_TAGLINE; ?></h1>
-            <p class="text-xl md:text-2xl text-blue-100 mb-8">We design, build, and manage digital experiences that grow brands and empower people.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/contact" class="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition transform hover:scale-105">Get Started</a>
-                <a href="/services" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary transition transform hover:scale-105">View Our Services</a>
+<!-- Hero Carousel Section -->
+<section class="relative h-[85vh] md:h-[90vh] min-h-[600px] overflow-hidden">
+    <!-- Carousel Container -->
+    <div class="hero-carousel relative h-full">
+        <!-- Slide 1 -->
+        <div class="hero-slide active absolute inset-0 bg-gradient-to-br from-primary via-blue-600 to-blue-800 flex items-center justify-center">
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+            <div class="container mx-auto px-4 relative z-10 text-center text-white">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up"><?php echo SITE_TAGLINE; ?></h1>
+                <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto animate-fade-in-up-delay">We design, build, and manage digital experiences that grow brands and empower people.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up-delay-2">
+                    <a href="/contact" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition transform hover:scale-105 shadow-lg">Get Started</a>
+                    <a href="/services" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition transform hover:scale-105">View Our Services</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="hero-slide absolute inset-0 bg-gradient-to-br from-accent via-green-500 to-green-600 flex items-center justify-center">
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+            <div class="container mx-auto px-4 relative z-10 text-center text-white">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">Digital Innovation at Your Fingertips</h1>
+                <p class="text-xl md:text-2xl text-green-100 mb-8 max-w-3xl mx-auto">Transform your business with cutting-edge technology and expert solutions.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/portfolio" class="bg-white text-accent px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition transform hover:scale-105 shadow-lg">View Portfolio</a>
+                    <a href="/training" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-accent transition transform hover:scale-105">Our Training</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="hero-slide absolute inset-0 bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 flex items-center justify-center">
+            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+            <div class="container mx-auto px-4 relative z-10 text-center text-white">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">Empowering Success Through Technology</h1>
+                <p class="text-xl md:text-2xl text-purple-100 mb-8 max-w-3xl mx-auto">Your trusted partner for web development, digital marketing, and IT solutions.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="/about" class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition transform hover:scale-105 shadow-lg">Learn More</a>
+                    <a href="/contact" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition transform hover:scale-105">Contact Us</a>
+                </div>
             </div>
         </div>
     </div>
-    <div class="absolute bottom-0 left-0 right-0">
+    
+    <!-- Carousel Navigation -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex space-x-3">
+        <button class="carousel-dot active w-3 h-3 rounded-full bg-white opacity-75 hover:opacity-100 transition" data-slide="0"></button>
+        <button class="carousel-dot w-3 h-3 rounded-full bg-white opacity-75 hover:opacity-100 transition" data-slide="1"></button>
+        <button class="carousel-dot w-3 h-3 rounded-full bg-white opacity-75 hover:opacity-100 transition" data-slide="2"></button>
+    </div>
+    
+    <!-- Previous/Next Buttons -->
+    <button class="carousel-prev absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition" aria-label="Previous slide">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+    </button>
+    <button class="carousel-next absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition" aria-label="Next slide">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+    </button>
+    
+    <!-- Wave Separator -->
+    <div class="absolute bottom-0 left-0 right-0 z-10">
         <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 120L60 105C120 90 240 60 360 45C480 30 600 30 720 37.5C840 45 960 60 1080 67.5C1200 75 1320 75 1380 75L1440 75V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z" fill="white"/>
         </svg>
     </div>
 </section>
+
+<style>
+.hero-slide {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    transform: translateX(0);
+}
+.hero-slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+.hero-slide.prev {
+    transform: translateX(-100%);
+}
+.hero-slide.next {
+    transform: translateX(100%);
+}
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out;
+}
+.animate-fade-in-up-delay {
+    animation: fade-in-up 0.8s ease-out 0.2s both;
+}
+.animate-fade-in-up-delay-2 {
+    animation: fade-in-up 0.8s ease-out 0.4s both;
+}
+</style>
+
+<script>
+// Hero Carousel Functionality
+(function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    let currentSlide = 0;
+    let autoSlideInterval;
+    
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === index) {
+                slide.classList.add('active');
+            }
+        });
+        
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        
+        currentSlide = index;
+    }
+    
+    function nextSlide() {
+        const next = (currentSlide + 1) % slides.length;
+        showSlide(next);
+    }
+    
+    function prevSlide() {
+        const prev = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(prev);
+    }
+    
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 6000); // Change slide every 6 seconds
+    }
+    
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+    
+    // Event Listeners
+    nextBtn?.addEventListener('click', () => {
+        nextSlide();
+        stopAutoSlide();
+        startAutoSlide();
+    });
+    
+    prevBtn?.addEventListener('click', () => {
+        prevSlide();
+        stopAutoSlide();
+        startAutoSlide();
+    });
+    
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+            stopAutoSlide();
+            startAutoSlide();
+        });
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+    });
+    
+    // Pause on hover
+    const carousel = document.querySelector('.hero-carousel');
+    carousel?.addEventListener('mouseenter', stopAutoSlide);
+    carousel?.addEventListener('mouseleave', startAutoSlide);
+    
+    // Start auto-slide
+    startAutoSlide();
+})();
+</script>
 
 <!-- Services Section -->
 <section class="py-20 bg-gray-50">
