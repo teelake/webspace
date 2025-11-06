@@ -41,8 +41,8 @@ define('LOGO_URL', SITE_URL . '/assets/img/logo/');
 define('ADMIN_PATH', 'admin'); // Change this to your preferred obscure name (must match folder name)
 define('ADMIN_EMAIL', 'admin@webspace.ng');
 define('SESSION_TIMEOUT', 3600); // 1 hour
-define('MAX_LOGIN_ATTEMPTS', 5); // Max failed login attempts
-define('LOGIN_LOCKOUT_TIME', 900); // 15 minutes lockout after max attempts
+define('MAX_LOGIN_ATTEMPTS', 50); // Max failed login attempts (increased for development)
+define('LOGIN_LOCKOUT_TIME', 60); // 1 minute lockout after max attempts (reduced for development)
 
 // Timezone
 date_default_timezone_set('Africa/Lagos');
