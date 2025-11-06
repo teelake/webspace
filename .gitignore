@@ -35,3 +35,9 @@ error_log
 # Node modules (if any)
 node_modules/
 
+# Secret files and credentials
+gsc.json
+*.json.key
+*.pem
+*.key
+credentials.json
