@@ -18,6 +18,13 @@ define('SITE_PHONE_1', '09133905681');
 define('SITE_PHONE_2', '08137449310');
 define('REGISTRATION_NO', '8919272');
 
+// Social Media Links
+define('SOCIAL_FACEBOOK', 'https://facebook.com/webspace.ng');
+define('SOCIAL_TWITTER', 'https://twitter.com/webspace_ng');
+define('SOCIAL_LINKEDIN', 'https://linkedin.com/company/webspace-ng');
+define('SOCIAL_INSTAGRAM', 'https://instagram.com/webspace.ng');
+define('SOCIAL_YOUTUBE', 'https://youtube.com/@webspace.ng');
+
 // Paths
 define('ROOT_PATH', dirname(__DIR__));
 define('UPLOAD_PATH', ROOT_PATH . '/uploads/');

@@ -30,41 +30,41 @@ include 'includes/header.php';
 <section class="relative h-[85vh] md:h-[90vh] min-h-[600px] overflow-hidden">
     <!-- Carousel Container -->
     <div class="hero-carousel relative h-full">
-        <!-- Slide 1 -->
-        <div class="hero-slide active absolute inset-0 bg-gradient-to-br from-primary via-blue-600 to-blue-800 flex items-center justify-center">
-            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        <!-- Slide 1 - Background Image with Overlay -->
+        <div class="hero-slide active absolute inset-0 flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&h=1080&fit=crop');">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/90 via-brandBlue/85 to-blue-900/90"></div>
             <div class="container mx-auto px-4 relative z-10 text-center text-white">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up"><?php echo SITE_TAGLINE; ?></h1>
-                <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto animate-fade-in-up-delay">We design, build, and manage digital experiences that grow brands and empower people.</p>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up drop-shadow-lg"><?php echo SITE_TAGLINE; ?></h1>
+                <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto animate-fade-in-up-delay drop-shadow-md">We design, build, and manage digital experiences that grow brands and empower people.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up-delay-2">
-                    <a href="/contact" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition transform hover:scale-105 shadow-lg">Get Started</a>
-                    <a href="/services" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition transform hover:scale-105">View Our Services</a>
+                    <a href="/contact" class="bg-brandYellow text-primary px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition transform hover:scale-105 shadow-xl">Get Started</a>
+                    <a href="/services" class="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition transform hover:scale-105 shadow-xl">View Our Services</a>
                 </div>
             </div>
         </div>
         
-        <!-- Slide 2 -->
-        <div class="hero-slide absolute inset-0 bg-gradient-to-br from-accent via-green-500 to-green-600 flex items-center justify-center">
-            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
-            <div class="container mx-auto px-4 relative z-10 text-center text-white">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">Digital Innovation at Your Fingertips</h1>
-                <p class="text-xl md:text-2xl text-green-100 mb-8 max-w-3xl mx-auto">Transform your business with cutting-edge technology and expert solutions.</p>
+        <!-- Slide 2 - Background Image with Overlay -->
+        <div class="hero-slide absolute inset-0 flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1080&fit=crop');">
+            <div class="absolute inset-0 bg-gradient-to-br from-brandYellow/85 via-yellow-400/80 to-yellow-500/85"></div>
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-primary drop-shadow-lg">Digital Innovation at Your Fingertips</h1>
+                <p class="text-xl md:text-2xl text-gray-900 mb-8 max-w-3xl mx-auto drop-shadow-md font-medium">Transform your business with cutting-edge technology and expert solutions.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="/portfolio" class="bg-white text-accent px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition transform hover:scale-105 shadow-lg">View Portfolio</a>
-                    <a href="/training" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-accent transition transform hover:scale-105">Our Training</a>
+                    <a href="/portfolio" class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-brandBlue transition transform hover:scale-105 shadow-xl">View Portfolio</a>
+                    <a href="/training" class="bg-white/90 backdrop-blur-sm border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-white transition transform hover:scale-105 shadow-xl">Our Training</a>
                 </div>
             </div>
         </div>
         
-        <!-- Slide 3 -->
-        <div class="hero-slide absolute inset-0 bg-gradient-to-br from-purple-600 via-purple-700 to-indigo-800 flex items-center justify-center">
-            <div class="absolute inset-0 bg-black bg-opacity-30"></div>
+        <!-- Slide 3 - Background Image with Overlay -->
+        <div class="hero-slide absolute inset-0 flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&h=1080&fit=crop');">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/90 via-brandBlue/85 to-blue-900/90"></div>
             <div class="container mx-auto px-4 relative z-10 text-center text-white">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">Empowering Success Through Technology</h1>
-                <p class="text-xl md:text-2xl text-purple-100 mb-8 max-w-3xl mx-auto">Your trusted partner for web development, digital marketing, and IT solutions.</p>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-lg">Empowering Success Through Technology</h1>
+                <p class="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto drop-shadow-md">Your trusted partner for web development, digital marketing, and IT solutions.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="/about" class="bg-white text-purple-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition transform hover:scale-105 shadow-lg">Learn More</a>
-                    <a href="/contact" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-purple-600 transition transform hover:scale-105">Contact Us</a>
+                    <a href="/about" class="bg-brandYellow text-primary px-8 py-4 rounded-lg font-semibold hover:bg-yellow-300 transition transform hover:scale-105 shadow-xl">Learn More</a>
+                    <a href="/contact" class="bg-white/10 backdrop-blur-sm border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition transform hover:scale-105 shadow-xl">Contact Us</a>
                 </div>
             </div>
         </div>
@@ -215,65 +215,158 @@ include 'includes/header.php';
 </script>
 
 <!-- Services Section -->
-<section class="py-20 bg-gray-50">
+<section class="py-16 bg-gray-50">
     <div class="container mx-auto px-4">
-        <div class="text-center mb-12" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">Comprehensive digital solutions to help your business thrive in the digital age</p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+            <div data-aos="fade-right">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
+                <p class="text-gray-600 mb-6">Comprehensive digital solutions to help your business thrive in the digital age</p>
+                <a href="/services" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-brandBlue transition inline-block shadow-md hover:shadow-lg">View All Services</a>
+            </div>
+            <div data-aos="fade-left" class="hidden lg:block">
+                <img src="https://undraw.co/api/illustrations/undraw_web_devices_re_m8sc?primary=%231D4ED8&secondary=%23FCD34D" alt="Services" class="w-full h-auto" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop';">
+            </div>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <?php foreach ($services as $index => $service): ?>
-            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="<?php echo $index * 100; ?>">
-                <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center mb-4">
-                    <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="<?php echo $index * 100; ?>">
+                <div class="w-12 h-12 bg-gradient-to-br from-primary to-brandYellow rounded-lg flex items-center justify-center mb-4">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                 </div>
                 <h3 class="text-xl font-semibold mb-2"><?php echo htmlspecialchars($service['title']); ?></h3>
-                <p class="text-gray-600"><?php echo htmlspecialchars(truncate($service['description'], 100)); ?></p>
-                <a href="/services#<?php echo $service['slug']; ?>" class="text-primary font-semibold mt-4 inline-block hover:underline">Learn More →</a>
+                <p class="text-gray-600 mb-4"><?php echo htmlspecialchars(truncate($service['description'], 100)); ?></p>
+                <a href="/services#<?php echo $service['slug']; ?>" class="text-primary font-semibold hover:underline inline-flex items-center">
+                    Learn More 
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
             </div>
             <?php endforeach; ?>
         </div>
-        
-        <div class="text-center mt-12" data-aos="fade-up">
-            <a href="/services" class="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition inline-block">View All Services</a>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-12 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                <div class="text-4xl md:text-5xl font-bold text-primary mb-2">12+</div>
+                <div class="text-gray-600 font-medium">Services</div>
+            </div>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="text-4xl md:text-5xl font-bold text-primary mb-2">100+</div>
+                <div class="text-gray-600 font-medium">Projects</div>
+            </div>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="text-4xl md:text-5xl font-bold text-primary mb-2">500+</div>
+                <div class="text-gray-600 font-medium">Trained</div>
+            </div>
+            <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="text-4xl md:text-5xl font-bold text-primary mb-2">12+</div>
+                <div class="text-gray-600 font-medium">Clients & Partners</div>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- About Section -->
-<section class="py-20">
+<section class="py-16">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div data-aos="fade-right">
+            <div data-aos="fade-right" class="order-2 md:order-1">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">About Webspace Innovation Hub</h2>
                 <p class="text-gray-600 mb-4">We are a leading digital solutions provider committed to empowering businesses and individuals through innovative technology and comprehensive training programs.</p>
                 <p class="text-gray-600 mb-6">With years of experience in web development, digital marketing, IT consultancy, and skills training, we help our clients achieve their digital transformation goals.</p>
-                <a href="/about" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition inline-block">Learn More About Us</a>
+                <a href="/about" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-brandBlue transition inline-block shadow-md hover:shadow-lg">Learn More About Us</a>
             </div>
-            <div data-aos="fade-left">
-                <div class="bg-gradient-to-br from-primary to-accent rounded-lg p-8 text-white">
-                    <div class="grid grid-cols-2 gap-6">
-                        <div>
-                            <div class="text-4xl font-bold mb-2">10+</div>
-                            <div class="text-blue-100">Services</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold mb-2">12+</div>
-                            <div class="text-blue-100">Partners</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold mb-2">100+</div>
-                            <div class="text-blue-100">Projects</div>
-                        </div>
-                        <div>
-                            <div class="text-4xl font-bold mb-2">500+</div>
-                            <div class="text-blue-100">Trained</div>
-                        </div>
-                    </div>
+            <div data-aos="fade-left" class="order-1 md:order-2">
+                <div class="relative">
+                    <img src="https://undraw.co/api/illustrations/undraw_team_collaboration_re_ow29?primary=%231D4ED8&secondary=%23FCD34D" alt="Team Collaboration" class="w-full h-auto rounded-lg shadow-xl" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop';">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-brandYellow/5 rounded-lg pointer-events-none"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose Us</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">We combine expertise, innovation, and dedication to deliver exceptional results</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary to-brandYellow rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Proven Track Record</h3>
+                <p class="text-gray-600">Years of experience delivering successful projects for clients across various industries</p>
+            </div>
+            
+            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary to-brandYellow rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Fast & Efficient</h3>
+                <p class="text-gray-600">Agile methodologies ensure quick turnaround times without compromising quality</p>
+            </div>
+            
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-16 h-16 bg-gradient-to-br from-primary to-brandYellow rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">Competitive Pricing</h3>
+                <p class="text-gray-600">Transparent pricing with no hidden costs. Value-driven solutions that fit your budget</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How We Work Section -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">How We Work</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Our proven process ensures successful project delivery</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="text-center" data-aos="fade-up" data-aos-delay="0">
+                <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">1</div>
+                <h3 class="text-lg font-semibold mb-2">Discovery</h3>
+                <p class="text-gray-600 text-sm">We understand your goals, challenges, and requirements</p>
+            </div>
+            
+            <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">2</div>
+                <h3 class="text-lg font-semibold mb-2">Planning</h3>
+                <p class="text-gray-600 text-sm">We create a detailed roadmap and strategy</p>
+            </div>
+            
+            <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">3</div>
+                <h3 class="text-lg font-semibold mb-2">Development</h3>
+                <p class="text-gray-600 text-sm">We build and implement with regular updates</p>
+            </div>
+            
+            <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">4</div>
+                <h3 class="text-lg font-semibold mb-2">Launch & Support</h3>
+                <p class="text-gray-600 text-sm">We launch and provide ongoing maintenance</p>
             </div>
         </div>
     </div>
@@ -281,11 +374,11 @@ include 'includes/header.php';
 
 <!-- Partners Section -->
 <?php if (!empty($partners)): ?>
-<section class="py-20 bg-gray-50">
+<section class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Partners</h2>
-            <p class="text-gray-600">Trusted by leading organizations</p>
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Clients & Partners</h2>
+            <p class="text-gray-600">Trusted by leading organizations and businesses</p>
         </div>
         
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8" data-aos="fade-up">
@@ -303,9 +396,84 @@ include 'includes/header.php';
 </section>
 <?php endif; ?>
 
+<!-- Testimonials Section -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
+            <p class="text-gray-600">Trusted by businesses across various industries</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="0">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary to-brandYellow rounded-full flex items-center justify-center text-white font-bold">JD</div>
+                    <div class="ml-4">
+                        <h4 class="font-semibold">John Doe</h4>
+                        <p class="text-sm text-gray-500">CEO, Tech Solutions</p>
+                    </div>
+                </div>
+                <div class="flex text-brandYellow mb-3">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                </div>
+                <p class="text-gray-600">"Webspace delivered exactly what we needed. Their team is professional, responsive, and truly understands digital transformation."</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary to-brandYellow rounded-full flex items-center justify-center text-white font-bold">SM</div>
+                    <div class="ml-4">
+                        <h4 class="font-semibold">Sarah Miller</h4>
+                        <p class="text-sm text-gray-500">Marketing Director</p>
+                    </div>
+                </div>
+                <div class="flex text-brandYellow mb-3">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                </div>
+                <p class="text-gray-600">"The digital marketing strategies they implemented increased our online presence significantly. Highly recommended!"</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-primary to-brandYellow rounded-full flex items-center justify-center text-white font-bold">RW</div>
+                    <div class="ml-4">
+                        <h4 class="font-semibold">Robert Williams</h4>
+                        <p class="text-sm text-gray-500">Business Owner</p>
+                    </div>
+                </div>
+                <div class="flex text-brandYellow mb-3">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                </div>
+                <p class="text-gray-600">"Their training programs are excellent. Our team gained valuable skills that transformed our operations."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section - After Testimonials (High Engagement Point) -->
+<section class="py-16 bg-gradient-to-r from-primary to-blue-600 text-white">
+    <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+        <p class="text-xl text-blue-100 mb-8">Let's discuss how we can help transform your digital presence</p>
+        <a href="/contact" class="bg-brandYellow text-primary px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition inline-block shadow-lg">Contact Us Today</a>
+    </div>
+</section>
+
 <!-- Blog Section -->
 <?php if (!empty($blog_posts)): ?>
-<section class="py-20">
+<section class="py-16 bg-white">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12" data-aos="fade-up">
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Latest from Our Blog</h2>
@@ -337,14 +505,109 @@ include 'includes/header.php';
 </section>
 <?php endif; ?>
 
-<!-- CTA Section -->
-<section class="py-20 bg-gradient-to-r from-primary to-blue-600 text-white">
-    <div class="container mx-auto px-4 text-center" data-aos="fade-up">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
-        <p class="text-xl text-blue-100 mb-8">Let's discuss how we can help transform your digital presence</p>
-        <a href="/contact" class="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition inline-block">Contact Us Today</a>
+<!-- FAQs Section -->
+<section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+            <p class="text-gray-600">Find answers to common questions about our services</p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto space-y-4">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="0">
+                <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition" onclick="toggleFaq(this)">
+                    <span class="font-semibold text-gray-900">What services do you offer?</span>
+                    <svg class="w-5 h-5 text-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-content hidden px-6 pb-4 text-gray-600">
+                    We offer comprehensive digital solutions including web design & development, mobile app development, digital marketing, SEO, IT consultancy, cloud computing, graphics design, data analysis, and skills training programs.
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition" onclick="toggleFaq(this)">
+                    <span class="font-semibold text-gray-900">How long does a typical project take?</span>
+                    <svg class="w-5 h-5 text-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-content hidden px-6 pb-4 text-gray-600">
+                    Project timelines vary based on scope and complexity. A simple website typically takes 2-4 weeks, while complex web applications may take 2-6 months. We provide detailed timelines during the planning phase.
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition" onclick="toggleFaq(this)">
+                    <span class="font-semibold text-gray-900">Do you provide ongoing support?</span>
+                    <svg class="w-5 h-5 text-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-content hidden px-6 pb-4 text-gray-600">
+                    Yes, we offer comprehensive maintenance and support packages to ensure your digital solutions continue to perform optimally. This includes updates, security patches, and technical support.
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                <button class="faq-toggle w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition" onclick="toggleFaq(this)">
+                    <span class="font-semibold text-gray-900">Can you work with our existing systems?</span>
+                    <svg class="w-5 h-5 text-primary transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="faq-content hidden px-6 pb-4 text-gray-600">
+                    Absolutely! We specialize in integrating new solutions with existing systems. Our team will assess your current infrastructure and ensure seamless integration.
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+<!-- Newsletter Section - Before Footer (Standard Practice) -->
+<section class="py-16 bg-gradient-to-r from-primary to-brandBlue text-white">
+    <div class="container mx-auto px-4">
+        <div class="max-w-2xl mx-auto text-center" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay Updated</h2>
+            <p class="text-blue-100 mb-8">Subscribe to our newsletter for the latest insights, tips, and updates</p>
+            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onsubmit="handleNewsletter(event)">
+                <input type="email" name="email" placeholder="Enter your email" required class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brandYellow">
+                <button type="submit" class="bg-brandYellow text-primary px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition shadow-lg">Subscribe</button>
+            </form>
+            <p class="text-sm text-blue-200 mt-4">We respect your privacy. Unsubscribe at any time.</p>
+        </div>
+    </div>
+</section>
+
+<script>
+function toggleFaq(button) {
+    const content = button.nextElementSibling;
+    const icon = button.querySelector('svg');
+    const isOpen = !content.classList.contains('hidden');
+    
+    // Close all FAQs
+    document.querySelectorAll('.faq-content').forEach(item => item.classList.add('hidden'));
+    document.querySelectorAll('.faq-toggle svg').forEach(item => item.classList.remove('rotate-180'));
+    
+    // Toggle current FAQ
+    if (isOpen) {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+    } else {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+    }
+}
+
+function handleNewsletter(event) {
+    event.preventDefault();
+    const email = event.target.email.value;
+    // In production, this would send to your backend
+    alert('Thank you for subscribing! We\'ll keep you updated.');
+    event.target.reset();
+}
+</script>
 
 <?php include 'includes/footer.php'; ?>
 

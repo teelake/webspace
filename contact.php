@@ -130,7 +130,7 @@ include 'includes/header.php';
                         <textarea id="message" name="message" rows="6" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"><?php echo isset($_POST['message']) ? htmlspecialchars($_POST['message']) : ''; ?></textarea>
                     </div>
                     
-                    <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Send Message</button>
+                    <button type="submit" class="w-full bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-brandBlue transition shadow-md hover:shadow-lg">Send Message</button>
                 </form>
             </div>
             
@@ -182,10 +182,22 @@ include 'includes/header.php';
                 <!-- Company Info -->
                 <div class="mt-8 p-6 bg-gray-50 rounded-lg">
                     <h3 class="font-semibold mb-2">Company Information</h3>
-                    <p class="text-gray-600 text-sm">
-                        <strong>Registration No:</strong> <?php echo REGISTRATION_NO; ?><br>
+                    <p class="text-gray-600 text-sm mb-2">
                         <strong>Tagline:</strong> <?php echo SITE_TAGLINE; ?>
                     </p>
+                    <div class="flex items-center space-x-2 text-sm text-gray-600">
+                        <svg class="w-4 h-4 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l1.09 3.27L16.27 6l-3.18 1.09L12 10.36l-1.09-3.27L7.73 6l3.18-1.09L12 2z" fill="currentColor"/>
+                            <path d="M12 22l-1.09-3.27L7.73 18l3.18-1.09L12 13.64l1.09 3.27L16.27 18l-3.18 1.09L12 22z" fill="currentColor"/>
+                            <path d="M22 12l-3.27-1.09L18 7.73l-1.09 3.18L13.64 12l3.27 1.09L18 16.27l1.09-3.18L22 12z" fill="currentColor"/>
+                            <path d="M2 12l3.27 1.09L6 16.27l1.09-3.18L10.36 12l-3.27-1.09L6 7.73l-1.09 3.18L2 12z" fill="currentColor"/>
+                            <path d="M19.07 4.93l-2.83 2.83-2.12-.71.71-2.12 2.83-2.83 2.12.71-.71 2.12z" fill="currentColor"/>
+                            <path d="M4.93 19.07l2.83-2.83 2.12.71-.71 2.12-2.83 2.83-2.12-.71.71-2.12z" fill="currentColor"/>
+                            <path d="M19.07 19.07l-2.83-2.83-.71 2.12 2.12.71 2.83 2.83.71-2.12-2.12-.71z" fill="currentColor"/>
+                            <path d="M4.93 4.93l2.83 2.83.71-2.12-2.12-.71-2.83-2.83-.71 2.12 2.12.71z" fill="currentColor"/>
+                        </svg>
+                        <span><strong>RC:</strong> <?php echo REGISTRATION_NO; ?></span>
+                    </div>
                 </div>
             </div>
         </div>

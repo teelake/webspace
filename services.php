@@ -15,15 +15,18 @@ include 'includes/header.php';
 ?>
 
 <!-- Page Header -->
-<section class="bg-gradient-to-r from-primary to-blue-600 text-white py-16">
-    <div class="container mx-auto px-4" data-aos="fade-up">
+<section class="relative bg-gradient-to-r from-primary to-blue-600 text-white py-20 overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=600&fit=crop" alt="Services" class="w-full h-full object-cover">
+    </div>
+    <div class="container mx-auto px-4 relative z-10" data-aos="fade-up">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Services</h1>
         <p class="text-xl text-blue-100">Comprehensive digital solutions for your business</p>
     </div>
 </section>
 
 <!-- Services Grid -->
-<section class="py-20">
+<section class="py-16">
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <?php foreach ($services as $index => $service): ?>
@@ -100,11 +103,11 @@ include 'includes/header.php';
 </section>
 
 <!-- CTA Section -->
-<section class="py-20 bg-gradient-to-r from-primary to-blue-600 text-white">
+<section class="py-16 bg-gradient-to-r from-primary to-blue-600 text-white">
     <div class="container mx-auto px-4 text-center" data-aos="fade-up">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
         <p class="text-xl text-blue-100 mb-8">Let's discuss how we can help your business grow</p>
-        <a href="/contact" class="bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition inline-block">Contact Us Today</a>
+        <a href="/contact" class="bg-brandYellow text-primary px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition inline-block shadow-lg">Contact Us Today</a>
     </div>
 </section>
 
