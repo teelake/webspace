@@ -56,7 +56,7 @@ $meta_keywords = isset($meta_keywords) ? $meta_keywords : 'web design, digital m
                 extend: {
                     colors: {
                         primary: '#1D4ED8',
-                        accent: '#10B981',
+                        accent: '#059669', // Enhanced green for better visibility
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -91,7 +91,7 @@ $meta_keywords = isset($meta_keywords) ? $meta_keywords : 'web design, digital m
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
                 <a href="/" class="flex items-center space-x-2">
-                    <img src="<?php echo LOGO_URL; ?>webspace-logo.png" alt="<?php echo SITE_NAME; ?>" class="h-12 w-auto">
+                    <img src="<?php echo LOGO_URL; ?>webspaceng-logo-renewed.png" alt="<?php echo SITE_NAME; ?>" class="h-16 md:h-20 w-auto">
                 </a>
                 
                 <!-- Desktop Menu -->

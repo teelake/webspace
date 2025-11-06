@@ -49,13 +49,79 @@ function isLoggedIn() {
 }
 
 /**
+ * Get admin URL path
+ */
+function getAdminPath() {
+    return defined('ADMIN_PATH') ? ADMIN_PATH : 'admin';
+}
+
+/**
+ * Get admin URL
+ */
+function adminUrl($path = '') {
+    $admin_path = getAdminPath();
+    return '/' . $admin_path . ($path ? '/' . ltrim($path, '/') : '');
+}
+
+/**
  * Require login
  */
 function requireLogin() {
     if (!isLoggedIn()) {
-        header('Location: /admin/login.php');
+        header('Location: ' . adminUrl('login.php'));
         exit;
     }
+}
+
+/**
+ * Check and handle login attempts (rate limiting)
+ */
+function checkLoginAttempts($username) {
+    global $conn;
+    if (!isset($conn)) {
+        $db = new Database();
+        $conn = $db->getConnection();
+    }
+    
+    $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+    $max_attempts = defined('MAX_LOGIN_ATTEMPTS') ? MAX_LOGIN_ATTEMPTS : 5;
+    $lockout_time = defined('LOGIN_LOCKOUT_TIME') ? LOGIN_LOCKOUT_TIME : 900;
+    
+    // Check recent failed attempts
+    $stmt = $conn->prepare("SELECT COUNT(*) as attempts, MAX(attempted_at) as last_attempt 
+                            FROM login_attempts 
+                            WHERE (username = ? OR ip_address = ?) 
+                            AND attempted_at > DATE_SUB(NOW(), INTERVAL ? SECOND) 
+                            AND success = 0");
+    $stmt->execute([$username, $ip, $lockout_time]);
+    $result = $stmt->fetch();
+    
+    if ($result && $result['attempts'] >= $max_attempts) {
+        return [
+            'locked' => true,
+            'message' => 'Too many failed login attempts. Please try again in ' . round($lockout_time / 60) . ' minutes.'
+        ];
+    }
+    
+    return ['locked' => false];
+}
+
+/**
+ * Log login attempt
+ */
+function logLoginAttempt($username, $success, $ip = null) {
+    global $conn;
+    if (!isset($conn)) {
+        $db = new Database();
+        $conn = $db->getConnection();
+    }
+    
+    if ($ip === null) {
+        $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+    }
+    
+    $stmt = $conn->prepare("INSERT INTO login_attempts (username, ip_address, success, attempted_at) VALUES (?, ?, ?, NOW())");
+    $stmt->execute([$username, $ip, $success ? 1 : 0]);
 }
 
 /**

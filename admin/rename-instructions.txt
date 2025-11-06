@@ -1,0 +1,55 @@
+INSTRUCTIONS TO RENAME ADMIN FOLDER FOR SECURITY
+==================================================
+
+STEP 1: Update config/config.php
+---------------------------------
+Change this line:
+define('ADMIN_PATH', 'cms-panel-2024');
+
+To your preferred folder name, for example:
+define('ADMIN_PATH', 'dashboard-x7k9');
+or
+define('ADMIN_PATH', 'manage-system');
+
+
+STEP 2: Rename the folder
+--------------------------
+1. Rename the 'admin' folder to match ADMIN_PATH in config
+2. For example, if ADMIN_PATH = 'cms-panel-2024', rename folder to 'cms-panel-2024'
+
+
+STEP 3: Update all admin URLs (if needed)
+------------------------------------------
+The code uses adminUrl() helper function, but you may need to update:
+- All href="/admin/..." to use adminUrl() function
+- Or use the ADMIN_PATH constant directly
+
+Most files should already be updated, but check:
+- admin/includes/header.php (navigation links)
+- Any hardcoded /admin/ paths
+
+
+STEP 4: Test
+------------
+1. Try accessing the old /admin/ path - should return 404
+2. Access new path - should show login page
+3. Test login functionality
+4. Test all admin pages
+
+
+RECOMMENDED FOLDER NAMES:
+-------------------------
+- cms-panel-2024
+- dashboard-x7k9
+- manage-system
+- control-panel-2024
+- x7k9p2m (completely random)
+
+Avoid obvious names like:
+- admin
+- administrator
+- backend
+- cms
+- dashboard
+- panel
+

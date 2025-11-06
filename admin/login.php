@@ -3,7 +3,8 @@ require_once __DIR__ . '/../config/config.php';
 
 // Redirect if already logged in
 if (isLoggedIn()) {
-    header('Location: /admin/index.php');
+    $admin_path = defined('ADMIN_PATH') ? ADMIN_PATH : 'admin';
+    header('Location: /' . $admin_path . '/index.php');
     exit;
 }
 
@@ -16,23 +17,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($username) || empty($password)) {
         $error = 'Please enter both username and password.';
     } else {
-        $db = new Database();
-        $conn = $db->getConnection();
-        
-        $stmt = $conn->prepare("SELECT * FROM admin_users WHERE username = ? OR email = ?");
-        $stmt->execute([$username, $username]);
-        $user = $stmt->fetch();
-        
-        if ($user && password_verify($password, $user['password'])) {
-            $_SESSION['admin_logged_in'] = true;
-            $_SESSION['admin_id'] = $user['id'];
-            $_SESSION['admin_username'] = $user['username'];
-            $_SESSION['admin_email'] = $user['email'];
-            
-            header('Location: /admin/index.php');
-            exit;
+        // Check login attempts (rate limiting)
+        $attempt_check = checkLoginAttempts($username);
+        if ($attempt_check['locked']) {
+            $error = $attempt_check['message'];
+            logLoginAttempt($username, false);
         } else {
-            $error = 'Invalid username or password.';
+            $db = new Database();
+            $conn = $db->getConnection();
+            
+            $stmt = $conn->prepare("SELECT * FROM admin_users WHERE username = ? OR email = ?");
+            $stmt->execute([$username, $username]);
+            $user = $stmt->fetch();
+            
+            if ($user && password_verify($password, $user['password'])) {
+                // Successful login
+                logLoginAttempt($username, true);
+                
+                $_SESSION['admin_logged_in'] = true;
+                $_SESSION['admin_id'] = $user['id'];
+                $_SESSION['admin_username'] = $user['username'];
+                $_SESSION['admin_email'] = $user['email'];
+                $_SESSION['last_activity'] = time();
+                
+                header('Location: ' . adminUrl('index.php'));
+                exit;
+            } else {
+                // Failed login
+                logLoginAttempt($username, false);
+                $error = 'Invalid username or password.';
+            }
         }
     }
 }

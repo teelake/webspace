@@ -26,8 +26,13 @@ define('ASSETS_URL', SITE_URL . '/assets/');
 define('LOGO_URL', SITE_URL . '/assets/img/logo/');
 
 // Admin Configuration
+// IMPORTANT: Change this to a random, non-obvious folder name for security
+// Example: 'cms-panel-2024', 'dashboard-x7k9', 'manage-system', etc.
+define('ADMIN_PATH', 'cms-panel-2024'); // Change this to your preferred obscure name
 define('ADMIN_EMAIL', 'admin@webspace.ng');
 define('SESSION_TIMEOUT', 3600); // 1 hour
+define('MAX_LOGIN_ATTEMPTS', 5); // Max failed login attempts
+define('LOGIN_LOCKOUT_TIME', 900); // 15 minutes lockout after max attempts
 
 // Timezone
 date_default_timezone_set('Africa/Lagos');
