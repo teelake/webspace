@@ -6,9 +6,9 @@
 
 class Database {
     private $host = 'localhost';
-    private $db_name = 'webspace_db';
-    private $username = 'root';
-    private $password = '';
+    private $db_name = 'u232647434_webspace';
+    private $username = 'u232647434_web_user';
+    private $password = 'byBD0suF#s5';
     private $conn;
 
     public function getConnection() {
@@ -26,8 +26,17 @@ class Database {
                 ]
             );
         } catch(PDOException $e) {
-            error_log("Connection Error: " . $e->getMessage());
-            die("Database connection failed. Please check your configuration.");
+            // Log error details
+            error_log("Database Connection Error: " . $e->getMessage());
+            error_log("Database: " . $this->db_name . " | Host: " . $this->host);
+            
+            // Production: Show generic message, log details
+            if (ini_get('display_errors') == 0) {
+                die("Database connection failed. Please contact the administrator.");
+            } else {
+                // Development: Show detailed error
+                die("Database connection failed: " . $e->getMessage());
+            }
         }
 
         return $this->conn;

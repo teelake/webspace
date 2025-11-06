@@ -12,7 +12,9 @@ if (session_status() === PHP_SESSION_NONE) {
 // Site Configuration
 define('SITE_NAME', 'Webspace Innovation Hub Limited');
 define('SITE_TAGLINE', 'Your Complete Digital Partner');
-define('SITE_URL', 'http://localhost/webspace');
+// Production URL
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
+define('SITE_URL', $protocol . 'www.webspace.ng');
 define('SITE_EMAIL', 'hello@webspace.ng');
 define('SITE_PHONE_1', '09133905681');
 define('SITE_PHONE_2', '08137449310');
@@ -44,9 +46,17 @@ define('LOGIN_LOCKOUT_TIME', 900); // 15 minutes lockout after max attempts
 // Timezone
 date_default_timezone_set('Africa/Lagos');
 
-// Error Reporting (set to 0 in production)
+// Error Reporting (PRODUCTION: errors logged but not displayed)
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', 0); // Hide errors from users
+ini_set('log_errors', 1); // Log errors to server log
+
+// Create logs directory if it doesn't exist
+$logs_dir = ROOT_PATH . '/logs';
+if (!is_dir($logs_dir)) {
+    @mkdir($logs_dir, 0755, true);
+}
+ini_set('error_log', $logs_dir . '/php-errors.log');
 
 // Include database
 require_once ROOT_PATH . '/config/database.php';
