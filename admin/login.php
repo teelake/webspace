@@ -3,8 +3,7 @@ require_once __DIR__ . '/../config/config.php';
 
 // Redirect if already logged in
 if (isLoggedIn()) {
-    $admin_path = defined('ADMIN_PATH') ? ADMIN_PATH : 'admin';
-    header('Location: /' . $admin_path . '/index.php');
+    header('Location: ' . adminUrl('index'));
     exit;
 }
 
@@ -40,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $_SESSION['admin_email'] = $user['email'];
                 $_SESSION['last_activity'] = time();
                 
-                header('Location: ' . adminUrl('index.php'));
+                header('Location: ' . adminUrl('index'));
                 exit;
             } else {
                 // Failed login

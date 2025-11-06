@@ -56,10 +56,12 @@ function getAdminPath() {
 }
 
 /**
- * Get admin URL
+ * Get admin URL (with clean URLs support - removes .php extension)
  */
 function adminUrl($path = '') {
     $admin_path = getAdminPath();
+    // Remove .php extension for clean URLs
+    $path = str_replace('.php', '', $path);
     return '/' . $admin_path . ($path ? '/' . ltrim($path, '/') : '');
 }
 

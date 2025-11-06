@@ -37,7 +37,8 @@ define('LOGO_URL', SITE_URL . '/assets/img/logo/');
 // Admin Configuration
 // IMPORTANT: Change this to a random, non-obvious folder name for security
 // Example: 'cms-panel-2024', 'dashboard-x7k9', 'manage-system', etc.
-define('ADMIN_PATH', 'cms-panel-2024'); // Change this to your preferred obscure name
+// NOTE: This must match the actual folder name
+define('ADMIN_PATH', 'admin'); // Change this to your preferred obscure name (must match folder name)
 define('ADMIN_EMAIL', 'admin@webspace.ng');
 define('SESSION_TIMEOUT', 3600); // 1 hour
 define('MAX_LOGIN_ATTEMPTS', 5); // Max failed login attempts

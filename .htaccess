@@ -1,13 +1,25 @@
 RewriteEngine On
 RewriteBase /
 
-# Admin routes, API, and static assets (don't rewrite) - CHECK FIRST
-RewriteCond %{REQUEST_URI} ^/cms-panel-2024/ [OR]
+# API, assets, uploads, and logs (don't rewrite) - CHECK FIRST
 RewriteCond %{REQUEST_URI} ^/api/ [OR]
 RewriteCond %{REQUEST_URI} ^/assets/ [OR]
 RewriteCond %{REQUEST_URI} ^/uploads/ [OR]
 RewriteCond %{REQUEST_URI} ^/logs/
 RewriteRule ^ - [L]
+
+# Admin clean URLs - Remove .php extension for admin pages
+# Check if it's a file request first (CSS, JS, images, etc.)
+RewriteCond %{REQUEST_URI} ^/admin/
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# Admin clean URLs - Remove .php extension
+RewriteCond %{REQUEST_URI} ^/admin/([^/]+)/?$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/admin/$1.php -f
+RewriteRule ^admin/([^/]+)/?$ /admin/$1.php [L]
 
 # Blog post routing - MUST come before general .php extension rule
 RewriteRule ^blog/([a-z0-9-]+)/?$ blog.php?slug=$1 [L,QSA]
