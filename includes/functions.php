@@ -260,3 +260,55 @@ function isValidFormTiming($minSeconds = 3) {
     return true;
 }
 
+/**
+ * Calculate reading time for blog post
+ */
+function calculateReadingTime($content) {
+    // Average reading speed: 200 words per minute
+    $words = str_word_count(strip_tags($content));
+    $minutes = ceil($words / 200);
+    return max(1, $minutes); // Minimum 1 minute
+}
+
+/**
+ * Get blog post comments
+ */
+function getBlogComments($post_id, $parent_id = null, $status = 'approved') {
+    global $conn;
+    if (!isset($conn)) {
+        $db = new Database();
+        $conn = $db->getConnection();
+    }
+    
+    $sql = "SELECT * FROM blog_comments WHERE post_id = ? AND status = ?";
+    $params = [$post_id, $status];
+    
+    if ($parent_id === null) {
+        $sql .= " AND parent_id IS NULL";
+    } else {
+        $sql .= " AND parent_id = ?";
+        $params[] = $parent_id;
+    }
+    
+    $sql .= " ORDER BY created_at ASC";
+    
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($params);
+    return $stmt->fetchAll();
+}
+
+/**
+ * Check if user has liked a post (by IP)
+ */
+function hasLikedPost($post_id, $ip_address) {
+    global $conn;
+    if (!isset($conn)) {
+        $db = new Database();
+        $conn = $db->getConnection();
+    }
+    
+    $stmt = $conn->prepare("SELECT id FROM blog_likes WHERE post_id = ? AND ip_address = ?");
+    $stmt->execute([$post_id, $ip_address]);
+    return $stmt->fetch() ? true : false;
+}
+

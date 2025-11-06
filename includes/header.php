@@ -16,23 +16,32 @@ $meta_keywords = isset($meta_keywords) ? $meta_keywords : 'web design, digital m
     <!-- SEO Meta Tags -->
     <title><?php echo htmlspecialchars($page_title); ?></title>
     <meta name="description" content="<?php echo htmlspecialchars($meta_description); ?>">
+    <?php if (isset($meta_keywords) && !empty($meta_keywords)): ?>
     <meta name="keywords" content="<?php echo htmlspecialchars($meta_keywords); ?>">
+    <?php endif; ?>
     <meta name="author" content="<?php echo SITE_NAME; ?>">
     <meta name="robots" content="index, follow">
+    <?php if (isset($canonical_url)): ?>
+    <link rel="canonical" href="<?php echo htmlspecialchars($canonical_url); ?>">
+    <?php endif; ?>
     
     <!-- Open Graph Tags -->
     <meta property="og:title" content="<?php echo htmlspecialchars($page_title); ?>">
     <meta property="og:description" content="<?php echo htmlspecialchars($meta_description); ?>">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="<?php echo SITE_URL . $_SERVER['REQUEST_URI']; ?>">
-    <meta property="og:image" content="<?php echo LOGO_URL; ?>webspace-logo-renewed-blue.jpg">
+    <meta property="og:type" content="<?php echo isset($og_type) ? $og_type : 'website'; ?>">
+    <meta property="og:url" content="<?php echo isset($canonical_url) ? htmlspecialchars($canonical_url) : SITE_URL . $_SERVER['REQUEST_URI']; ?>">
+    <meta property="og:image" content="<?php echo isset($og_image) ? htmlspecialchars($og_image) : SITE_URL . LOGO_URL . 'webspace-logo-renewed-blue.jpg'; ?>">
     <meta property="og:site_name" content="<?php echo SITE_NAME; ?>">
+    <?php if (isset($og_image_width)): ?>
+    <meta property="og:image:width" content="<?php echo $og_image_width; ?>">
+    <meta property="og:image:height" content="<?php echo $og_image_height; ?>">
+    <?php endif; ?>
     
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?php echo htmlspecialchars($page_title); ?>">
     <meta name="twitter:description" content="<?php echo htmlspecialchars($meta_description); ?>">
-    <meta name="twitter:image" content="<?php echo LOGO_URL; ?>webspace-logo-renewed-blue.jpg">
+    <meta name="twitter:image" content="<?php echo isset($og_image) ? htmlspecialchars($og_image) : SITE_URL . LOGO_URL . 'webspace-logo-renewed-blue.jpg'; ?>">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="<?php echo LOGO_URL; ?>webspace-favicon.png">

@@ -571,11 +571,14 @@ include 'includes/header.php';
         <div class="max-w-2xl mx-auto text-center" data-aos="fade-up">
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay Updated</h2>
             <p class="text-blue-100 mb-8">Subscribe to our newsletter for the latest insights, tips, and updates</p>
-            <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onsubmit="handleNewsletter(event)">
-                <input type="email" name="email" placeholder="Enter your email" required class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brandYellow">
-                <button type="submit" class="bg-brandYellow text-primary px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition shadow-lg">Subscribe</button>
+            <form id="newsletterForm" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onsubmit="handleNewsletter(event)">
+                <!-- Honeypot field (hidden from users) -->
+                <input type="text" name="website" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <input type="email" name="email" id="newsletterEmail" placeholder="Enter your email" required class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-brandYellow">
+                <button type="submit" id="newsletterBtn" class="bg-brandYellow text-primary px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition shadow-lg">Subscribe</button>
             </form>
-            <p class="text-sm text-blue-200 mt-4">We respect your privacy. Unsubscribe at any time.</p>
+            <div id="newsletterMessage" class="mt-4 text-sm"></div>
+            <p class="text-sm text-blue-200 mt-2">We respect your privacy. Unsubscribe at any time.</p>
         </div>
     </div>
 </section>
@@ -600,12 +603,44 @@ function toggleFaq(button) {
     }
 }
 
-function handleNewsletter(event) {
+async function handleNewsletter(event) {
     event.preventDefault();
-    const email = event.target.email.value;
-    // In production, this would send to your backend
-    alert('Thank you for subscribing! We\'ll keep you updated.');
-    event.target.reset();
+    const form = event.target;
+    const email = form.email.value;
+    const btn = document.getElementById('newsletterBtn');
+    const messageDiv = document.getElementById('newsletterMessage');
+    const originalBtnText = btn.textContent;
+    
+    // Disable button
+    btn.disabled = true;
+    btn.textContent = 'Subscribing...';
+    messageDiv.textContent = '';
+    messageDiv.className = 'mt-4 text-sm';
+    
+    try {
+        const formData = new FormData(form);
+        const response = await fetch('/api/newsletter.php', {
+            method: 'POST',
+            body: formData
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            messageDiv.textContent = data.message;
+            messageDiv.className = 'mt-4 text-sm text-green-300 font-semibold';
+            form.reset();
+        } else {
+            messageDiv.textContent = data.message;
+            messageDiv.className = 'mt-4 text-sm text-red-300 font-semibold';
+        }
+    } catch (error) {
+        messageDiv.textContent = 'Sorry, there was an error. Please try again later.';
+        messageDiv.className = 'mt-4 text-sm text-red-300 font-semibold';
+    } finally {
+        btn.disabled = false;
+        btn.textContent = originalBtnText;
+    }
 }
 </script>
 
