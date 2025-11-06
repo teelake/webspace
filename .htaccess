@@ -13,12 +13,6 @@ RewriteRule ^(.*)/$ /$1 [R=301,L]
 # Blog post routing
 RewriteRule ^blog/([a-z0-9-]+)/?$ blog.php?slug=$1 [L,QSA]
 
-# Admin routes, API, and static assets (don't rewrite)
-RewriteCond %{REQUEST_URI} !^/cms-panel-2024/
-RewriteCond %{REQUEST_URI} !^/api/
-RewriteCond %{REQUEST_URI} !^/assets/
-RewriteCond %{REQUEST_URI} !^/uploads/
-RewriteCond %{REQUEST_URI} !^/logs/
 
 # Prevent directory listing
 Options -Indexes
