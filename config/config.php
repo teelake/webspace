@@ -10,7 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // Site Configuration
-define('SITE_NAME', 'Webspace -');
+define('SITE_NAME', 'Webspace ');
 define('SITE_TAGLINE', 'Your Complete Digital Partner');
 // Production URL
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https://' : 'http://';
